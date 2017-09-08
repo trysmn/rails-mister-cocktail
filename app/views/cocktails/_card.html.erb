@@ -1,13 +1,17 @@
-
-  <% @cocktails.each do |cocktail,index| %>
+<% @cocktails.each do |cocktail| %>
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://static.pexels.com/photos/109275/pexels-photo-109275.jpeg');">
-      <div class="card-category">Cocktail</div>
+      <div class="card-category"><%= cocktail.name %></div>
       <div class="card-description">
-        <%= cocktail.name %>
-        <%= link_to "More Details", cocktail_path(cocktail) %>
       </div>
-      <img class="card-user" src="http://lorempixel.com/400/200">
-      <a class="card-link" href="#" ></a>
+      <!-- <img class="card-user" src="http://lorempixel.com/400/200"> -->
+      <%= link_to cocktail_path(cocktail), {class: "card-link"} do %>
+        <%= image_tag "http://lorempixel.com/400/200", {class: "card-user"} %>
+      <% end %>
+      <!-- <a class="card-link" href="<%= link_to cocktail_path(cocktail)%>"></a> -->
     </div>
-  <% end %>
+  </div>
+<% end %>
+
+
 
