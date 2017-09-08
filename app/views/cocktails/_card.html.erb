@@ -1,0 +1,13 @@
+
+  <% @cocktails.each do |cocktail,index| %>
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://static.pexels.com/photos/109275/pexels-photo-109275.jpeg');">
+      <div class="card-category">Cocktail</div>
+      <div class="card-description">
+        <%= cocktail.name %>
+        <%= link_to "More Details", cocktail_path(cocktail) %>
+      </div>
+      <img class="card-user" src="http://lorempixel.com/400/200">
+      <a class="card-link" href="#" ></a>
+    </div>
+  <% end %>
+

@@ -1,0 +1,13 @@
+<h1 style="text-align: center;">Our special cocktails</h1>
+
+<% render 'card' %>
+
+<ul>
+  <% @cocktails.each do |cocktail,index| %>
+    <li>
+      <%= cocktail.name %>
+      <%= link_to "More Details", cocktail_path(cocktail) %>
+    </li>
+  <% end %>
+</ul>
+
