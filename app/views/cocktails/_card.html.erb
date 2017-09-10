@@ -1,14 +1,18 @@
 <% @cocktails.each do |cocktail| %>
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://static.pexels.com/photos/109275/pexels-photo-109275.jpeg');">
-      <div class="card-category"><%= cocktail.name %></div>
-      <div class="card-description">
-      </div>
-      <!-- <img class="card-user" src="http://lorempixel.com/400/200"> -->
-      <%= link_to cocktail_path(cocktail), {class: "card-link"} do %>
-        <%= image_tag "http://lorempixel.com/400/200", {class: "card-user"} %>
-      <% end %>
-      <!-- <a class="card-link" href="<%= link_to cocktail_path(cocktail)%>"></a> -->
+    <% if cocktail.photo? %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>);">
+    <% else %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "default_photo.jpg" %>);">
+    <% end %>
+    <div class="card-category"><%= cocktail.name %></div>
+    <div class="card-description">
+    </div>
+    <!-- <img class="card-user" src="http://lorempixel.com/400/200"> -->
+    <%= link_to cocktail_path(cocktail), {class: "card-link"} do %>
+      <%= image_tag "http://lorempixel.com/400/200", {class: "card-user"} %>
+    <% end %>
+    <!-- <a class="card-link" href="<%= link_to cocktail_path(cocktail)%>"></a> -->
     </div>
   </div>
 <% end %>
